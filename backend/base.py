@@ -4,6 +4,8 @@ import quiz
 import generativeResources
 from flask_cors import CORS
 
+
+
 api = Flask(__name__)
 CORS(api)
 
@@ -66,3 +68,7 @@ def generative_resource():
     print(f"generative resources for {req_data['course']}")
     resources = generativeResources.generate_resources(**req_data)
     return resources
+
+@api.route("/", methods=["GET"])
+def home():
+    return "Flask backend is running. Use API endpoints!"
